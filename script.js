@@ -1,69 +1,65 @@
-const baseUrl = "https://tarmeezacademy.com/api/v1/";
+const baseUrl = "http://tarmeezacademy.com/api/v1/";
 let Page = 1;
-let LastPage = 1 ;
+let LastPage = 1;
 
-getPosts()
+getPosts();
 
 window.addEventListener("scroll", () => {
-    const endOfPage = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2;
-    
-    if (endOfPage && Page <= LastPage) {
-        Page++;
-        getPosts(false, Page);
-    }
+  const endOfPage =
+    window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+
+  if (endOfPage && Page <= LastPage) {
+    Page++;
+    getPosts(false, Page);
+  }
 });
 
-
-
-
 function getPosts(reload = true, currentPage = 1) {
-    togleLoader(true)
-    axios.get(`${baseUrl}posts?limit=5&page=${currentPage}`)
-    .then(response => {
-        togleLoader(false)
-        let abstractDate = response.data.data;
-        LastPage = response.data.meta.last_page;
-        if(reload){
-            document.getElementsByClassName("main-container")[0].innerHTML = "";  
-        }
-        
-        let content = "";
-        
-        
+  togleLoader(true);
+  axios.get(`${baseUrl}posts?limit=5&page=${currentPage}`).then((response) => {
+    togleLoader(false);
+    let abstractDate = response.data.data;
+    LastPage = response.data.meta.last_page;
+    if (reload) {
+      document.getElementsByClassName("main-container")[0].innerHTML = "";
+    }
 
-        for (const info of abstractDate) {
-            if(info.title === null || info.title === undefined){
-                info.title = "";
-            }
-            
-            
-            let tags = "";  
-            let user = GetCurrentUser();
-            let btnEdit = "";
-            
-            let isMyPost = user !== null && info.author.id === user.id;
-            
-            for (const tag of info.tags) {
-                tags += `<span class="tag">#${tag.name} #${tag.arabic_name}</span>`;
-            }
-            if( isMyPost){
-                btnEdit =  `
+    let content = "";
+
+    for (const info of abstractDate) {
+      if (info.title === null || info.title === undefined) {
+        info.title = "";
+      }
+
+      let tags = "";
+      let user = GetCurrentUser();
+      let btnEdit = "";
+
+      let isMyPost = user !== null && info.author.id === user.id;
+
+      for (const tag of info.tags) {
+        tags += `<span class="tag">#${tag.name} #${tag.arabic_name}</span>`;
+      }
+      if (isMyPost) {
+        btnEdit = `
                 <div class="edit-remove">
-                    <div class="editButton" onclick="checkOpenPost('edit','${encodeURIComponent(JSON.stringify(info))}')"> 
+                    <div class="editButton" onclick="checkOpenPost('edit','${encodeURIComponent(
+                      JSON.stringify(info)
+                    )}')"> 
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 EDIT
                     </div>
-                    <div class="removeButton id="remove" onclick="checkOpenPost('remove','${encodeURIComponent(JSON.stringify(info))}')"> 
+                    <div class="removeButton id="remove" onclick="checkOpenPost('remove','${encodeURIComponent(
+                      JSON.stringify(info)
+                    )}')"> 
                                 <i class="fa-solid fa-trash"></i>
                                 REMOVE
                     </div>
                 </div>
-                `
-            }
-            
-            
-            
-            content = `
+                `;
+      }
+
+      content = `
                 <div class="post">
                     <div class="post-header">
                         <img src="${info.author.profile_image}" onclick="showProfile(${info.author.id})" alt="Profile Picture" class="profile-pic">
@@ -88,31 +84,25 @@ function getPosts(reload = true, currentPage = 1) {
                     </div>
                 </div>
             `;
-            
-            document.getElementsByClassName("main-container")[0].innerHTML += content;
-            
-            
-        }
 
-    });
+      document.getElementsByClassName("main-container")[0].innerHTML += content;
+    }
+  });
 }
 function showPost(posteId) {
-    window.location.href = `./SinglePostPage/index.html?posteId=${posteId}`
+  window.location.href = `./SinglePostPage/index.html?posteId=${posteId}`;
 }
 function togleLoader(show = true) {
-    if(show)
-        document.getElementById("togle").style.visibility = "visible";
-    else
-    document.getElementById("togle").style.visibility = "hidden";
-        
+  if (show) document.getElementById("togle").style.visibility = "visible";
+  else document.getElementById("togle").style.visibility = "hidden";
 }
 
 function GetCurrentUser() {
-    let user = null;
-    const storage = localStorage.getItem("user");
+  let user = null;
+  const storage = localStorage.getItem("user");
 
-    if(storage != null){
-        user = JSON.parse(storage);
-    }
-    return user;
+  if (storage != null) {
+    user = JSON.parse(storage);
+  }
+  return user;
 }
