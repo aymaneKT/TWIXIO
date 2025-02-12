@@ -1,4 +1,4 @@
-const baseUrl = "http://tarmeezacademy.com/api/v1/";
+const baseUrl = "https://tarmeezacademy.com/api/v1/";
 let Page = 1;
 let LastPage = 1;
 
