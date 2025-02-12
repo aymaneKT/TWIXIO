@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TWINXIO</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="../images.png" type="image/x-icon" />
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="togle-container" id="togle">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="SucessAlert"></div>
+    <div class="ErrorAlert"></div>
+    <nav>
+      <h2><a href="../index.html">Twixio</a></h2>
+      <ul>
+        <li>
+          <a href="../index.html" id="home-btn" onclick="configShow(this.id)"
+            ><i class="fa-solid fa-house"></i>
+            <h3>Home</h3></a
+          >
+        </li>
+        <li>
+          <a onclick="ProfileClicked()" style="display: none" id="Profile-btn"
+            ><i class="fa-solid fa-user"></i>
+            <h3>Profile</h3></a
+          >
+        </li>
+        <li>
+          <a style="display: none" onclick="logout()" id="Logout-btn"
+            ><i class="fa-solid fa-right-from-bracket"></i>
+            <h3>Logout</h3></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="main-container"></div>
+  </body>
+  <script src="script.js"></script>
+  <script src="../mainLogic.js"></script>
+</html>
