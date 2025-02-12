@@ -23,17 +23,7 @@
 git clone https://github.com/aymaneKT/TWIXIO.git
 ```
 
-### 2. Install Dependencies (if backend is present)
-```bash
-npm install
-```
-
-### 3. Start the Server
-```bash
-npm start
-```
-
-### 4. Launch the Client Application
+### 2. Launch the Client Application
 Open the `index.html` file in the browser or use Live Server.
 
 ## API Endpoints
