@@ -61,9 +61,7 @@ function configShow(data) {
                     </div>
                     <div class="photo-input">
                         <input type="file" id="register-image" accept="image/*">
-                        <label for="register-image" class="photo-label">
-                            <span class="upload-icon">📷</span> Upload Photo
-                        </label>
+                       
                     </div>
                     <button onclick="Register()">Register</button>
                     <div class="already-acc">
