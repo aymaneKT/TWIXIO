@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TWIXIO</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="shortcut icon" href="../Images/logo.png" type="image/x-icon">
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../images.png" type="image/x-icon">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="../Images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="../images.png" type="image/x-icon" />
+  </head>
+  <body>
     <div class="togle-container" id="togle">
-        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-        </div>
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+    </div>
     <div class="SucessAlert"></div>
     <div class="ErrorAlert"></div>
     <div id="add-post" onclick="checkOpenPost('add')">
-        <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-plus"></i>
     </div>
     <div class="create-post" id="create-post"></div>
-    
-    <nav>
-        <h2><a href="../index.html">Twixio</a></h2>
-        <ul>
-            <li>
-              <a
-                href="../index.html"
-                id="home-btn"
-                onclick="configShow(this.id)"
-                ><i class="fa-solid fa-house"></i>
-                <h3>Home</h3></a
-              >
-            </li>
-            <li>
-              <a onclick="ProfileClicked()" style="display: none" id="Profile-btn"
-                ><i class="fa-solid fa-user"></i>
-                <h3>Profile</h3></a
-              >
-            </li>
-            <li>
-              <a id="Login-btn" onclick="configShow(this.id)"
-                ><i class="fa-solid fa-right-to-bracket"></i>
-                <h3>Login</h3></a
-              >
-            </li>
-            <li>
-              <a id="Register-btn" onclick="configShow(this.id)"
-                ><i class="fa-solid fa-registered"></i>
-                <h3>Register</h3></a
-              >
-            </li>
-            <li>
-              <a style="display:none" onclick="logout()" id="Logout-btn"
-                ><i class="fa-solid fa-right-from-bracket"></i>
-                <h3>Logout</h3></a
-              >
-            </li>
-          </ul>
-    </nav>
-        <div class="main-content-profile">
-            <div class="user-information">
-                
-            </div>
-            <div class="user-posts" style="color: white;"></div>
-            <div class="main-container">
-                    
-                </div>
 
-        </div>
-<script src="script.js"></script>
-<script src="../mainLogic.js"></script>
+    <nav>
+      <h2><a href="../index.html">Twixio</a></h2>
+      <ul>
+        <li>
+          <a href="../index.html" id="home-btn" onclick="configShow(this.id)"
+            ><i class="fa-solid fa-house"></i>
+            <h3>Home</h3></a
+          >
+        </li>
+        <li>
+          <a onclick="ProfileClicked()" style="display: none" id="Profile-btn"
+            ><i class="fa-solid fa-user"></i>
+            <h3>Profile</h3></a
+          >
+        </li>
+        <li>
+          <a id="Login-btn" onclick="configShow(this.id)"
+            ><i class="fa-solid fa-right-to-bracket"></i>
+            <h3>Login</h3></a
+          >
+        </li>
+        <li>
+          <a id="Register-btn" onclick="configShow(this.id)"
+            ><i class="fa-solid fa-registered"></i>
+            <h3>Register</h3></a
+          >
+        </li>
+        <li>
+          <a style="display: none" onclick="logout()" id="Logout-btn"
+            ><i class="fa-solid fa-right-from-bracket"></i>
+            <h3>Logout</h3></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="main-content-profile">
+      <div class="user-information"></div>
+      <div class="user-posts" style="color: white"></div>
+      <div class="main-container"></div>
+    </div>
+  </body>
+  <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+  <script src="script.js"></script>
+  <script src="../mainLogic.js"></script>
 </html>

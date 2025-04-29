@@ -2,6 +2,7 @@ const baseUrl = "https://tarmeezacademy.com/api/v1/";
 let Page = 1;
 let LastPage = 1;
 
+
 getPosts();
 
 window.addEventListener("scroll", () => {
